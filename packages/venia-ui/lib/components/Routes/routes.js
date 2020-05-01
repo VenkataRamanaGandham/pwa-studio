@@ -7,6 +7,7 @@ import MagentoRoute from '../MagentoRoute';
 const CartPage = lazy(() => import('../CartPage'));
 const CheckoutPage = lazy(() => import('../CheckoutPage'));
 const CreateAccountPage = lazy(() => import('../CreateAccountPage'));
+const HomePage = lazy(() => import('../HomePage'));
 const Search = lazy(() => import('../../RootComponents/Search'));
 
 const Routes = () => {
@@ -27,6 +28,9 @@ const Routes = () => {
                 </Route>
                 <Route>
                     <MagentoRoute />
+                    <Route exact path="/venia-new-home">
+                        <HomePage />
+                    </Route>
                 </Route>
             </Switch>
         </Suspense>
