@@ -5,6 +5,7 @@
 :global(.venia-home-row-2),
 :global(.venia-home-row-3) {
     --brightBlue: 233 100% 056%;
+    color: hsl(205 024% 012%);
     max-width: 1440px !important;
 }
 
@@ -246,11 +247,6 @@
     font-weight: 600;
 }
 
-:global(.venia-home-banner-a-content > div a:first-of-type) {
-    background-color: hsl(var(--brightBlue));
-    color: white;
-}
-
 :global(.venia-home-banner-a-image) {
     align-self: center !important;
     background-position: center center !important;
@@ -287,8 +283,9 @@
 }
 
 :global(.venia-home-banner-b-content > div a) {
-    background-color: white;
+    background-color: transparent;
     border-color: white;
+    color: white;
 }
 
 /*
