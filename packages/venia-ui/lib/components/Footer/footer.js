@@ -64,7 +64,7 @@ const Footer = props => {
             <div className={classes.branding}>
                 <ul className={classes.legal}>
                     <li className={classes.terms}>{'Terms of Use'}</li>
-                    <li className={classes.privacy}>{'Privacy'}</li>
+                    <li className={classes.privacy}>{'Privacy Policy'}</li>
                 </ul>
                 <p className={classes.copyright}>{copyrightText || null}</p>
                 <div>{'Venia'}</div>

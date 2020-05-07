@@ -10,8 +10,8 @@
 }
 
 /*
-  * Target all buttons.
-  */
+ * Target all buttons.
+ */
 :global(.venia-home-row-1 a) {
     align-items: center;
     background-color: transparent;
@@ -37,15 +37,18 @@
 }
 
 /*
-  * Target the wrapper within the first row.
-  */
+ * Target the wrapper within the first row.
+ */
 :global(.venia-home-row-1 > div) {
+    background: none !important;
+    display: grid !important;
     padding: 0 !important;
+    row-gap: 2rem;
 }
 
 /*
-  * Target all column groups after the slider.
-  */
+ * Target all column groups after the slider.
+ */
 :global(.venia-home-slider ~ div) {
     display: grid !important;
     gap: 0;
@@ -56,18 +59,33 @@
     z-index: 1;
 }
 
-/*
-  * Target the callout containers below the slider.
-  */
-:global(.venia-home-slider + div),
-:global(.venia-home-slider + div + div) {
-    gap: 2rem;
-    padding-right: 2rem;
+@media (max-width: 960px) {
+    :global(.venia-home-slider ~ div) {
+        grid-auto-flow: row;
+        grid-template-columns: auto;
+        text-align: center;
+    }
 }
 
 /*
-  * Target the slider track.
-  */
+ * Target the callout containers below the slider.
+ */
+:global(.venia-home-slider + div) {
+    gap: 2rem;
+    margin-top: -2rem;
+}
+
+/*
+ * Target the slider.
+ */
+:global(.venia-home-slider .slick-slider) {
+    max-width: 1440px;
+    width: 100vw;
+}
+
+/*
+ * Target the slider track.
+ */
 :global(.venia-home-slider .slick-slider .slick-track) {
     display: grid;
     grid-auto-flow: column;
@@ -78,8 +96,8 @@
 }
 
 /*
-  * Target each slide.
-  */
+ * Target each slide.
+ */
 :global(.venia-home-slider .slick-slider .slick-slide) {
     float: none;
     line-height: 1.5;
@@ -87,8 +105,8 @@
 }
 
 /*
-  * Target the banner wrapper within a slide.
-  */
+ * Target the banner wrapper within a slide.
+ */
 :global(.venia-home-slider .slick-slide > div > div > div) {
     align-items: center;
     background-position: right top !important;
@@ -99,9 +117,17 @@
     justify-items: center;
     padding: 0 0 6rem !important;
 }
+
 @media (max-width: 1280px) {
     :global(.venia-home-slider .slick-slide > div > div > div) {
         min-height: 580px !important;
+    }
+}
+
+@media (max-width: 960px) {
+    :global(.venia-home-slider .slick-slide > div > div > div) {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
     }
 }
 
@@ -111,8 +137,8 @@
 }
 
 /*
-  * Target the content of a slide.
-  */
+ * Target the content of a slide.
+ */
 :global(.venia-home-slider .slick-slide h2) {
     font-family: 'Source Serif Pro';
     font-size: 40px !important;
@@ -125,8 +151,8 @@
 }
 
 /*
-  * Target the slide selection controls.
-  */
+ * Target the slide selection controls.
+ */
 :global(.venia-home-slider .slick-slider .slick-dots) {
     align-items: center;
     display: grid !important;
@@ -138,8 +164,8 @@
 }
 
 /*
-  * Target each item within the slide selection controls.
-  */
+ * Target each item within the slide selection controls.
+ */
 :global(.venia-home-slider .slick-slider .slick-dots li) {
     height: auto;
     margin: 0;
@@ -147,8 +173,8 @@
 }
 
 /*
-  * Target each button within the slide selection controls.
-  */
+ * Target each button within the slide selection controls.
+ */
 :global(.venia-home-slider .slick-slider .slick-dots li > button) {
     background-clip: content-box !important;
     border-color: transparent;
@@ -162,69 +188,66 @@
 }
 
 /*
-  * Target all callouts below the slider.
-  */
-:global(.venia-home-callout-text),
-:global(.venia-home-callout-image) {
+ * Target all callouts below the slider.
+ */
+:global(.venia-home-callout) {
+    align-content: end !important;
+    background-size: cover !important;
+    display: grid !important;
+    height: 280px !important;
+    justify-content: end !important;
     margin: 0 !important;
+    min-height: 280px !important;
+    padding: 0 !important;
     width: 100% !important;
 }
 
-/*
-  * Target the image within a callout.
-  */
-:global(.venia-home-callout-image) {
-    background-size: cover !important;
-    height: 280px !important;
-    min-height: 280px !important;
-    padding: 0 !important;
+@media (max-width: 960px) {
+    :global(.venia-home-callout) {
+        justify-self: center;
+        max-width: 640px;
+    }
 }
 
 /*
-  * Target the text box within a callout.
-  */
+ * Target the text box within a callout.
+ */
 :global(.venia-home-callout-text) {
-    background-color: transparent !important;
-    display: grid !important;
-    grid-template-columns: 50% 50% !important;
-    height: 6rem !important;
-    margin-top: -5.5rem !important;
-    min-height: 6rem !important;
-    padding: 0 !important;
-}
-
-/*
-  * Target the content of a text box within a callout.
-  */
-:global(.venia-home-callout-text > div) {
     align-content: center;
     background-color: rgb(27 37 44) !important;
     border-bottom: 0.5rem solid hsl(233 100% 056%) !important;
     display: grid;
     gap: 0.25rem;
-    grid-column: 2 !important;
+    height: 6.5rem !important;
     line-height: 1.5 !important;
-    padding: 0 1rem !important;
+    padding: 0 1.5rem !important;
     text-align: left !important;
-    transform: translate3d(1rem, 0, 0);
+    transform: translate3d(1rem, 0.5rem, 0);
+    width: 16rem;
 }
 
-:global(.venia-home-callout-text > div > h2) {
+@media (max-width: 960px) {
+    :global(.venia-home-callout-text) {
+        transform: translate3d(0, 0.5rem, 0);
+    }
+}
+
+:global(.venia-home-callout-text > h2) {
     font-family: 'Source Serif Pro';
     font-size: 24px !important;
     font-weight: 600 !important;
     margin: 0;
 }
 
-:global(.venia-home-callout-text > div > p),
-:global(.venia-home-callout-text > div > p > span) {
+:global(.venia-home-callout-text > p),
+:global(.venia-home-callout-text > p > span) {
     font-size: 0.875rem !important;
     margin: 0;
 }
 
 /*
-  * Target the content side of a type-A banner.
-  */
+ * Target the content side of a type-A banner.
+ */
 :global(.venia-home-banner-a-content) {
     align-content: center !important;
     align-self: center !important;
@@ -235,6 +258,14 @@
     padding: 5rem 2rem !important;
     text-align: left;
     width: 100% !important;
+}
+
+@media (max-width: 960px) {
+    :global(.venia-home-banner-a-content) {
+        grid-column: 1 / span 1;
+        padding-top: 0 !important;
+        text-align: center;
+    }
 }
 
 :global(.venia-home-banner-a-content > div) {
@@ -258,9 +289,18 @@
     width: 100% !important;
 }
 
+@media (max-width: 960px) {
+    :global(.venia-home-banner-a-image) {
+        background-position: center bottom !important;
+        grid-column: 1 / span 1;
+        grid-row: 1 / span 1;
+        margin-top: 4rem !important;
+    }
+}
+
 /*
-  * Target the content of a type-B banner.
-  */
+ * Target the content of a type-B banner.
+ */
 :global(.venia-home-banner-b-image) {
     background-position: center center !important;
     background-size: cover !important;
@@ -269,11 +309,26 @@
     width: 100% !important;
 }
 
+@media (max-width: 960px) {
+    :global(.venia-home-banner-b-image) {
+        grid-column: 1 / span 1;
+    }
+}
+
 :global(.venia-home-banner-b-content) {
     grid-column: 4 / span 2;
     padding: 5rem !important;
     text-align: left;
     width: 100% !important;
+}
+
+@media (max-width: 960px) {
+    :global(.venia-home-banner-b-content) {
+        grid-column: 1 / span 1;
+        margin: 0 1rem !important;
+        text-align: center;
+        width: auto !important;
+    }
 }
 
 :global(.venia-home-banner-b-content > div h2) {
@@ -289,8 +344,8 @@
 }
 
 /*
-  * Target the second row.
-  */
+ * Target the second row.
+ */
 :global(.venia-home-row-2 h2) {
     font-family: 'Source Serif Pro';
     font-size: 40px !important;
