@@ -63,7 +63,7 @@ const withFilterSearch = WrappedComponent => {
                             {getSearchInput}
                         </Form>
                     )}
-                    {filteredItems.length > 0 ? (
+                    {filteredItems && filteredItems.length > 0 ? (
                         <WrappedComponent
                             {...rest}
                             classes={classes}
